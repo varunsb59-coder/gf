@@ -24,3 +24,74 @@ public class Demo1Application {
 	}
 
 }
+crud operations
+MongoDB CRUD Operations
+CRUD stands for:
+Letter	Operation	Meaning
+C	Create	Insert data
+R	Read	Display data
+U	Update	Modify existing data
+D	Delete	Remove data
+
+Step 1: Create a database
+use college
+
+
+This creates or switches to the college database.
+Step 2: Create a collection
+db.createCollection("students")
+
+
+Here, students is the collection name.
+Step 3: CREATE – Insert records
+To insert one student:
+db.students.insertOne({
+    name: "Varun",
+    age: 20,
+    course: "CSE"
+})
+
+
+To insert multiple students:
+db.students.insertMany([
+    {name: "Rahul", age: 21, course: "CSE"},
+    {name: "Ravi", age: 20, course: "ECE"},
+    {name: "Arun", age: 22, course: "CSE"}
+])
+
+
+Step 4: READ – Display records
+Display all students:
+db.students.find()
+
+
+Display records in a readable format:
+db.students.find().pretty()
+
+
+Find only CSE students:
+db.students.find({course: "CSE"})
+
+
+Step 5: UPDATE – Modify records
+Update one student's age:
+db.students.updateOne(
+    {name: "Varun"},
+    {$set: {age: 21}}
+)
+
+
+Update multiple students:
+db.students.updateMany(
+    {course: "CSE"},
+    {$set: {course: "Computer Science"}}
+)
+
+
+Step 6: DELETE – Remove records
+Delete one student:
+db.students.deleteOne({name: "Varun"})
+
+
+Delete multiple students:
+db.students.deleteMany({course: "CSE"})
