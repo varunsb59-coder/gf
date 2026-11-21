@@ -1,0 +1,27 @@
+// Create Database
+use College
+
+// Insert (Create)
+db.Student.insertMany([
+  {name: "Yash", age: 19, marks: 85},
+  {name: "Rahul", age: 20, marks: 90},
+  {name: "Arun", age: 19, marks: 75}
+])
+
+// Read
+db.Student.find()
+
+// Update
+db.Student.updateOne(
+  {name: "Yash"},
+  {$set: {marks: 95}}
+)
+
+// Delete
+db.Student.deleteOne({name: "Arun"})
+
+// Sort Ascending
+db.Student.find().sort({marks: 1})
+
+// Sort Descending
+db.Student.find().sort({marks: -1})
